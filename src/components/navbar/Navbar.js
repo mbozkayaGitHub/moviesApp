@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import './Navbar.css'
+import { Link, useNavigate } from 'react-router-dom';
+import './Navbar.css';
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -7,7 +7,12 @@ import { useState } from 'react';
 const Navbar = () => {
   const path = useLocation().pathname;
    const [currentUser, setCurrentUser] = useState(true);  
-   const displayName ="Mustafa"
+   const navigate = useNavigate();
+   const displayName ="Mustafa";
+   const signOutFunc =() => {
+    navigate("/register")
+
+   };
   return <div className="navbar">
     <div className="title">
       <Link style={{textDecoration: 'none'}}
@@ -24,7 +29,7 @@ const Navbar = () => {
     </div>
     <div className="logout">
       <h6>{displayName}</h6>
-      <button>Log out</button>
+      <button onClick={signOutFunc}>Log out</button>
     </div>
   </div>
   
