@@ -8,6 +8,7 @@ import { AuthContext } from '../../context/AuthContext';
 
 
 const IMG_API = 'https://image.tmdb.org/t/p/original';
+console.log(IMG_API);
 const MovieCard = ({ title, poster_path, vote_average, id }) => {
   const { currentUser } = useContext(AuthContext);
 
