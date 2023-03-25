@@ -1,6 +1,6 @@
 import "./App.css";
 import AuthContextProvider from "./context/AuthContext";
-
+import MovieContextProvider from './context/MovieContext';
 import AppRouter from "./router/AppRouter";
 
 function App() {
