@@ -1,6 +1,7 @@
 import { useContext } from "react"
-import ModalLogin from "../../components/modalLogin/ModalLogin"
-import { MovieContext } from "../../context/movieContext"
+import ModalLogin from "../../components/modalLogin/ModalLogin";
+import MovieCard from "../../components/movieCard/MovieCard";
+import { MovieContext } from "../../context/MovieContext"
 import "./Home.css"
 
 
@@ -8,8 +9,9 @@ import "./Home.css"
 const Home = () => {
   const {movie} = useContext(MovieContext)
   return (
-    <div>Home
+    <div>
       <ModalLogin/>
+       <MovieCard/>
     </div>
   )
 }

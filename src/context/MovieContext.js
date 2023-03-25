@@ -1,11 +1,10 @@
-
 import { async } from '@firebase/util';
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 
 export const MovieContext = createContext();
 
-const API_KEY = "0dfeb1e3115d788bdd6ccd6d217d93cf";
+const API_KEY = 'a661ed05e48d9c25013f54f6a6cd626f';
 const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=`;
 
 const MovieContextProvider = (prop) => {
@@ -16,12 +15,17 @@ const MovieContextProvider = (prop) => {
   }, []);
   const getMovie = async (api) => {
     try {
-      const data = await axios.get(api);
-      console.log(data);
+      const {
+        data: { results },
+      } = await axios.get(api);
+
+      setMovie(results);
     } catch (error) {}
   };
   return (
-    <MovieContext.Provider value={{}}>{prop.children}</MovieContext.Provider>
+    <MovieContext.Provider value={{ movie }}>
+      {prop.children}
+    </MovieContext.Provider>
   );
 };
 
